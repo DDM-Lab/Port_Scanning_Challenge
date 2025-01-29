@@ -61,6 +61,11 @@ Thoughs:
 - We're not outputting if participants have tried multiple ports repeatedly and even if they attempted invalid ports. Maybe we don't need to add this, something to discuss
 - Should we output the time that participants spent doing the problem?
 
+## Control and treatment conditions:
+
+Control Condition: All options are presented in a randomized order but consist solely of default port numbers, allowing researchers to observe decision-making in the absence of alternative choices.
+Treatment Condition: All options are presented in a randomized order, with half being default port numbers and the other half non-default port numbers, enabling measurement of the preference for defaults. 
+
 ### Example output:
 
 ```
