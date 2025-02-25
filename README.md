@@ -53,18 +53,14 @@ docker run -it default-effect
 - This is a simulated challenge and does not perform actual port scanning or network operations.
 - The encoded text and port statuses are predetermined
 
-  
-Thoughs:
-- Instead of "Port 1 is not open or hasn't been scanned yet," we could specify, "Port 1 is closed or invalid. Use the 'scan' command to identify open ports."
-- Should we say "part 1 of 4" so participants know the flag is divided into four parts
-- Maybe show when a milestone is achieved (e.g., "You found all encoded parts!")
-- We're not outputting if participants have tried multiple ports repeatedly and even if they attempted invalid ports. Maybe we don't need to add this, something to discuss
-- Should we output the time that participants spent doing the problem?
 
 ## Control and treatment conditions:
 
-Control Condition: All options are presented in a randomized order but consist solely of default port numbers, allowing researchers to observe decision-making in the absence of alternative choices.
-Treatment Condition: All options are presented in a randomized order, with half being default port numbers and the other half non-default port numbers, enabling measurement of the preference for defaults. 
+
+Control Condition: The eight ports include four default ports and four non-default (user-defined) ports. The default ports are lesser-known defaults (e.g., not HTTP, SSH, or other widely recognized ports).
+Treatment Condition: The eight ports also include four default ports and four non-default (user-defined) ports. However, in this condition, the default ports are well-known (e.g., HTTP, SSH, FTP).
+
+All options should always be presented in a random order.
 
 ### Example output:
 
@@ -74,3 +70,12 @@ Ports connected: [80, 443, 65432, 8080]
 Please copy the order of the ports
 Total unique ports connected: 4
 ```
+
+
+## Carolina's Feedback
+
+- Instead of "Port 1 is not open or hasn't been scanned yet," we could specify, "Port 1 is closed or invalid. Use the 'scan' command to identify open ports."
+- We don't have all of the ports (we should have 8)
+- The output says I didn't try to connect to any invalid port, but I did.
+- How are the control and treatment implemented? 
+- Should we give more context at the beginning of the challenge? 
