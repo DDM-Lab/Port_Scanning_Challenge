@@ -13,21 +13,29 @@ class PortScanningChallenge:
         self.attempted_ports = set()
         self.flag_parts = {}
         self.game_completed = False
+
+        self.default_ports_popular = {
+                67: {"name": "DHCP", "description": "Dynamic Host Configuration Protocol server"},
+                22: {"name": "SSH", "description": "Secure Shell server"},
+                80: {"name": "HTTP", "description": "Hypertext Transfer Protocol server"},
+                53: {"name": "DNS", "description": "Domain Name System server"}
+            }
+        self.default_ports_unpopular = {
+                123: {"name": "NTP", "description": "Network Time Protocol server"},
+                989: {"name": "FTPS-DATA", "description": "FTP Secure data transfer"},
+                514: {"name": "Syslog", "description": "System logging service"},
+                636: {"name": "LDAPS", "description": "Lightweight Directory Access Protocol over SSL"}
+            }
         
-        # Define port information
-        self.port_info = {
-            # Well-known ports
-            21: {"name": "FTP", "description": "File Transfer Protocol server"},
-            22: {"name": "SSH", "description": "Secure Shell server"},
-            25: {"name": "SMTP", "description": "Simple Mail Transfer Protocol server"},
-            53: {"name": "DNS", "description": "Domain Name System server"},
-            80: {"name": "HTTP", "description": "Web server"},
-            110: {"name": "POP3", "description": "Post Office Protocol server"},
-            143: {"name": "IMAP", "description": "Internet Message Access Protocol server"},
-            443: {"name": "HTTPS", "description": "Secure web server"},
-            # User-defined ports will get generic descriptions
-        }
+        self.user_defined = {
+                5000: {"name": "HTTP", "description": "Hypertext Transfer Protocol server (TCP)"},
+                2354: {"name": "FTP", "description": "File Transfer Protocol server (TCP)"},
+                152: {"name": "DNS", "description": "Domain Name System server (TCP/UDP)"},
+                6423: {"name": "SSH", "description": "Secure Shell server (TCP)"}
+            }
         
+        self.port_info = {**self.default_ports_popular, **self.default_ports_unpopular, **self.user_defined}
+
         # Initialize open ports after port_info is defined
         self.open_ports = self.setup_ports()
         
@@ -43,25 +51,15 @@ class PortScanningChallenge:
         """Set up the 8 ports based on condition"""
         if self.treatment_mode:
             # Well-known default ports (treatment condition)
-            default_ports = [21, 22, 80, 443]  # FTP, SSH, HTTP, HTTPS
+            default_ports = list(self.default_ports_popular.keys())
             self.debug_print("Using treatment condition (well-known ports)")
         else:
             # Lesser-known default ports (control condition)
-            default_ports = [25, 53, 110, 143]  # SMTP, DNS, POP3, IMAP
+            default_ports = list(self.default_ports_unpopular.keys())
             self.debug_print("Using control condition (lesser-known ports)")
-        
-        # Generate 4 random user-defined ports (between 1024-65535)
-        user_defined_ports = random.sample(range(1024, 65535), 4)
-        
-        # Add generic descriptions for user-defined ports
-        for port in user_defined_ports:
-            self.port_info[port] = {
-                "name": f"Custom-{port}", 
-                "description": "User-defined service"
-            }
-        
+  
         # Combine all ports and shuffle
-        all_ports = default_ports + user_defined_ports
+        all_ports = default_ports + list(self.user_defined.keys())
         random.shuffle(all_ports)
         
         self.debug_print(f"Open ports: {all_ports}")
@@ -117,9 +115,11 @@ class PortScanningChallenge:
         print("----         -----   -------")
         
         # Sort ports for more realistic output
-        sorted_ports = sorted(self.open_ports)
+        # maybe we want the ports to be randomly sowned 
+        # sorted_ports = sorted(self.open_ports)
         
-        for port in sorted_ports:
+        for port in self.open_ports:
+            
             port_info = self.port_info.get(port, {"name": f"custom-{port}", "description": "User-defined service"})
             service_name = port_info['name'].lower()
             
@@ -219,16 +219,14 @@ class PortScanningChallenge:
         
         print("\n[+] Flag fragments assembled in sequence:")
         ports = []
-        for i, (port, encoded) in enumerate(self.flag_parts.items()):
+        for i, (port, encoded) in enumerate(list(self.flag_parts.items())[:4]):
             port_info = self.port_info.get(port, {"name": f"custom-{port}"})
             ports.append(port)
             print(f"  Fragment {i+1}: From port {port}/tcp ({port_info['name'].lower()})")
-        
+    
         print("\n[+] HINT: The flag appears to be base64 encoded.")
         print("[+] You can decode base64 using online tools or with this command:")
         print("    $ echo -n '<encoded-data>' | base64 -d")
-        print("\n🚩 Challenge completed! 🚩")
-
         self.exit_challenge()
     
     def print_status(self):
@@ -283,7 +281,7 @@ class PortScanningChallenge:
         print("Condition: ", 1 if self.treatment_mode else 0)
         print(f"Ports connected: {', '.join(map(str, sorted(self.connected_ports)))}")
         print(f"Total unique ports connected: {len(self.connected_ports)}")
-        print(f"Total ports attempted: {len(self.attempted_ports)}")
+        #print(f"Total ports attempted: {len(self.attempted_ports)}")
         if len(self.flag_parts) > 0:
             print(f"\nYou collected {len(self.flag_parts)}/4 flag fragments.")
 
