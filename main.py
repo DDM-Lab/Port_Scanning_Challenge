@@ -224,9 +224,12 @@ class PortScanningChallenge:
             ports.append(port)
             print(f"  Fragment {i+1}: From port {port}/tcp ({port_info['name'].lower()})")
     
-        print("\n[+] HINT: The flag appears to be base64 encoded.")
-        print("[+] You can decode base64 using online tools or with this command:")
+
+        print("\n[+] HINT: Each fragment is base64 encoded. The final puzzle might involve further decoding,")
+        print("    perhaps multiple times. Once fully decoded, you may discover an image or text revealing the final secret.\n")
+        print("[+] For example, on a Linux/macOS terminal, you could run:")
         print("    $ echo -n '<encoded-data>' | base64 -d")
+        print("    (Do this for all four parts in the correct order, then see if the result itself is also base64!)\n")
         self.exit_challenge()
     
     def print_status(self):
