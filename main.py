@@ -217,19 +217,29 @@ class PortScanningChallenge:
         print("\n🎯 Target successfully compromised! 🎯")
         print("\nCollected all encoded flag components:")
         
-        print("\n[+] Flag fragments assembled in sequence:")
-        ports = []
-        for i, (port, encoded) in enumerate(list(self.flag_parts.items())[:4]):
-            port_info = self.port_info.get(port, {"name": f"custom-{port}"})
-            ports.append(port)
-            print(f"  Fragment {i+1}: From port {port}/tcp ({port_info['name'].lower()})")
+        # print("\n[+] Flag fragments assembled in sequence:")
+        # ports = []
+        # for i, (port, encoded) in enumerate(list(self.flag_parts.items())[:4]):
+        #     port_info = self.port_info.get(port, {"name": f"custom-{port}"})
+        #     ports.append(port)
+        #     print(f"  Fragment {i+1}: From port {port}/tcp ({port_info['name'].lower()})")
     
 
-        print("\n[+] HINT: Each fragment is base64 encoded. The final puzzle might involve further decoding,")
-        print("    perhaps multiple times. Once fully decoded, you may discover an image or text revealing the final secret.\n")
-        print("[+] For example, on a Linux/macOS terminal, you could run:")
-        print("    $ echo -n '<encoded-data>' | base64 -d")
-        print("    (Do this for all four parts in the correct order, then see if the result itself is also base64!)\n")
+        print("\n\033[93mAnalyze the collected flag fragments to reconstruct the final flag!\033[0m")
+        print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image or text revealing the final secret.\033[0m")
+
+
+        print("\n\033[93mExample Approach:\033[0m")
+        print("\033[92mYou might try writing a simple Python script that:\033[0m")
+        print("          1) Takes the collected base64-encoded flag fragments.")
+        print("          2) Decodes each fragment using base64 decoding.")
+        print("          3) Assembles the decoded parts in the correct order to reveal the final flag.")
+
+        # print("\n\033[93mTerminal Command Hint:\033[0m")
+        # print("\033[92mOn a Linux/macOS terminal, you could try running:\033[0m")
+        # print("          $ echo -n '<encoded-data>' | base64 -d")
+        # print("    (Repeat this for each fragment and check if the result itself is also base64!)\n")
+
         self.exit_challenge()
     
     def print_status(self):
@@ -280,13 +290,15 @@ class PortScanningChallenge:
     
     def exit_challenge(self):
         """Summary of results when exiting the challenge"""
-        print("Copy the text bellow to Qualtrics to get compensation for this challenge.")
+
+        print("\033[91mCopy the text bellow to Qualtrics to get compensation for this challenge.\033[0m")
         print("Condition: ", 1 if self.treatment_mode else 0)
         print(f"Ports connected: {', '.join(map(str, sorted(self.connected_ports)))}")
         print(f"Total unique ports connected: {len(self.connected_ports)}")
         #print(f"Total ports attempted: {len(self.attempted_ports)}")
-        if len(self.flag_parts) > 0:
-            print(f"\nYou collected {len(self.flag_parts)}/4 flag fragments.")
+        # if len(self.flag_parts) > 0:
+        #     print(f"\nYou collected {len(self.flag_parts)}/4 flag fragments.")
+        print("\033[91mCopy the text above to Qualtrics to get compensation for this challenge.\033[0m")
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Port scanning CTF challenge')
