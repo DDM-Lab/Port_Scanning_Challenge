@@ -54,6 +54,11 @@ python port_scanning_challenge.py
 
 With options:
 ```bash
+
+# Run in control condition 
+python port_scanning_challenge.py 
+
+
 # Run in treatment condition (well-known ports)
 python port_scanning_challenge.py --treatment
 
