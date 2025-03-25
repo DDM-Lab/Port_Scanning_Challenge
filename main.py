@@ -28,10 +28,10 @@ class PortScanningChallenge:
             }
         
         self.user_defined = {
-                5000: {"name": "HTTP", "description": "Hypertext Transfer Protocol server (TCP)"},
+                5000: {"name": "Flask", "description": "Flask web application framework (TCP)"},
                 2354: {"name": "FTP", "description": "File Transfer Protocol server (TCP)"},
                 152: {"name": "DNS", "description": "Domain Name System server (TCP/UDP)"},
-                6423: {"name": "SSH", "description": "Secure Shell server (TCP)"}
+                6423: {"name": "RDP", "description": "Remote Desktop Protocol server (TCP)"}
             }
         
         self.port_info = {**self.default_ports_popular, **self.default_ports_unpopular, **self.user_defined}
