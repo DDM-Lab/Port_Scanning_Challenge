@@ -4,6 +4,12 @@ import random
 import sys
 import base64
 import time
+import os
+
+
+treatment_mode = True
+debug_mode = False
+
 class PortScanningChallenge:
     def __init__(self, treatment_mode=False, debug_mode=False):
         self.treatment_mode = treatment_mode
@@ -309,8 +315,17 @@ def parse_arguments():
     return parser.parse_args()
 
 def main():
+    global treatment_mode, debug_mode
     args = parse_arguments()
-    game = PortScanningChallenge(treatment_mode=args.treatment, debug_mode=args.debug)
+    args_t = args.treatment
+    if args_t:
+        treatment_mode = args_t
+
+    args_d = args.debug
+    if args_d:
+        debug_mode = args_d
+    
+    game = PortScanningChallenge(treatment_mode=treatment_mode, debug_mode=debug_mode)
     game.run()
 
 if __name__ == "__main__":
