@@ -299,7 +299,7 @@ class PortScanningChallenge:
 
         print("\033[91mCopy the text bellow to Qualtrics to get compensation for this challenge.\033[0m")
         print("Condition: ", 1 if self.treatment_mode else 0)
-        print(f"Ports connected: {', '.join(map(str, sorted(self.connected_ports)))}")
+        print(f"Ports connected: {', '.join(map(str, self.connected_ports))}")
         print(f"Total unique ports connected: {len(self.connected_ports)}")
         #print(f"Total ports attempted: {len(self.attempted_ports)}")
         # if len(self.flag_parts) > 0:
