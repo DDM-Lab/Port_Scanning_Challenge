@@ -15,7 +15,7 @@ class PortScanningChallenge:
         self.treatment_mode = treatment_mode
         self.debug_mode = debug_mode
         self.scanned_ports = set()
-        self.connected_ports = set()
+        self.connected_ports = list()
         self.attempted_ports = set()
         self.flag_parts = {}
         self.game_completed = False
@@ -166,7 +166,7 @@ class PortScanningChallenge:
                 return False
             
             # Connect to the port and assign a flag part if needed
-            self.connected_ports.add(port)
+            self.connected_ports.append(port)
             
             # Assign a flag part if there are still parts left to assign
             part_number = len(self.flag_parts) + 1
@@ -256,13 +256,13 @@ class PortScanningChallenge:
         
         # Show debug information if enabled
         if self.debug_mode:
-            print(f"DEBUG: Open ports: {', '.join(map(str, sorted(self.open_ports)))}")
+            print(f"DEBUG: Open ports: {', '.join(map(str, self.open_ports))}")
             invalid_attempts = self.attempted_ports - set(self.open_ports)
             if invalid_attempts:
-                print(f"DEBUG: Invalid port attempts: {', '.join(map(str, sorted(invalid_attempts)))}")
+                print(f"DEBUG: Invalid port attempts: {', '.join(map(str, invalid_attempts))}")
         
         if self.connected_ports:
-            print(f"Connected to ports: {', '.join(map(str, sorted(self.connected_ports)))}")
+            print(f"Connected to ports: {', '.join(map(str, self.connected_ports))}")
             print(f"Flag fragments collected: {len(self.flag_parts)}/4")
         
         if self.game_completed:
