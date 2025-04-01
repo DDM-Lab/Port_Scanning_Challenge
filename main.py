@@ -191,7 +191,7 @@ class PortScanningChallenge:
                 print("[+] HTTP response: 200 OK")
                 print("[+] Server: Apache/2.4.41")
                 print("[+] Content-Type: text/html")
-                print("[+] Discovered hidden directory: /secret_data/")
+                print("[+] Discovered hidden directory")
             elif port_info['name'] == "FTP":
                 print("[+] FTP response: 220 ProFTPD Server ready.")
                 print("[+] Anonymous login successful")
@@ -232,14 +232,14 @@ class PortScanningChallenge:
     
 
         print("\n\033[93mAnalyze the collected flag fragments to reconstruct the final flag!\033[0m")
-        print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image or text revealing the final secret.\033[0m")
+        print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image revealing the final secret.\033[0m")
 
 
         print("\n\033[93mExample Approach:\033[0m")
         print("\033[92mYou might try writing a simple Python script that:\033[0m")
         print("          1) Takes the collected base64-encoded flag fragments.")
         print("          2) Decodes each fragment using base64 decoding.")
-        print("          3) Assembles the decoded parts in the correct order to reveal the final flag.")
+        print("          3) Assembles the decoded parts in the correct order to reveal the final flag (and maybe it's an image).")
 
         # print("\n\033[93mTerminal Command Hint:\033[0m")
         # print("\033[92mOn a Linux/macOS terminal, you could try running:\033[0m")
