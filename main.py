@@ -295,16 +295,23 @@ class PortScanningChallenge:
                 print("Invalid command. Use 'scan', 'connect <port>', 'status', or 'exit'.")
     
     def exit_challenge(self):
-        """Summary of results when exiting the challenge"""
-
-        print("\033[91mCopy the text below to Qualtrics to get compensation for this challenge.\033[0m")
-        print("Condition: ", 1 if self.treatment_mode else 0)
-        print(f"Ports connected: {', '.join(map(str, self.connected_ports))}")
-        print(f"Total unique ports connected: {len(self.connected_ports)}")
-        #print(f"Total ports attempted: {len(self.attempted_ports)}")
-        # if len(self.flag_parts) > 0:
-        #     print(f"\nYou collected {len(self.flag_parts)}/4 flag fragments.")
-        print("\033[91mCopy the text above to Qualtrics to get compensation for this challenge.\033[0m")
+        """Write the Qualtrics output to a file instead of printing it.
+           If the file already exists, print a message and do not overwrite it."""
+        output_file = "qualtrics_data.txt"
+        output_text = (
+            "Upload this file to Qualtrics to get compensation for this challenge.\n"
+            f"Condition: {1 if self.treatment_mode else 0}\n"
+            f"Ports connected: {', '.join(map(str, self.connected_ports))}\n"
+            f"Total unique ports connected: {len(self.connected_ports)}\n"
+        )
+        
+        if os.path.exists(output_file):
+            print(f"Output file '{os.path.abspath(output_file)}' already exists. Please upload this file to Qualtrics to get compensation for this challenge.")           
+        else:
+            with open(output_file, "w") as f:
+                f.write(output_text)
+                print(f"Output file '{os.path.abspath(output_file)}' has been created. Please upload this file to Qualtrics to get compensation for this challenge.")
+            
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Port scanning CTF challenge')
