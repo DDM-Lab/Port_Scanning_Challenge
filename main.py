@@ -297,7 +297,7 @@ class PortScanningChallenge:
     def exit_challenge(self):
         """Summary of results when exiting the challenge"""
 
-        print("\033[91mCopy the text bellow to Qualtrics to get compensation for this challenge.\033[0m")
+        print("\033[91mCopy the text below to Qualtrics to get compensation for this challenge.\033[0m")
         print("Condition: ", 1 if self.treatment_mode else 0)
         print(f"Ports connected: {', '.join(map(str, self.connected_ports))}")
         print(f"Total unique ports connected: {len(self.connected_ports)}")
