@@ -297,7 +297,7 @@ class PortScanningChallenge:
     def exit_challenge(self):
         """Write the Qualtrics output to a file instead of printing it.
            If the file already exists, print a message and do not overwrite it."""
-        output_file = "qualtrics_data.txt"
+        output_file = "ports_challenge.txt"
         output_text = (
             "Upload this file to Qualtrics to get compensation for this challenge.\n"
             f"Condition: {1 if self.treatment_mode else 0}\n"
