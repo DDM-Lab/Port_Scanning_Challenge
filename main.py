@@ -27,18 +27,20 @@ class PortScanningChallenge:
                 53: {"name": "DNS", "description": "Domain Name System server"}
             }
         self.default_ports_unpopular = {
-                123: {"name": "NTP", "description": "Network Time Protocol server"},
-                989: {"name": "FTPS-DATA", "description": "FTP Secure data transfer"},
-                514: {"name": "Syslog", "description": "System logging service"},
-                636: {"name": "LDAPS", "description": "Lightweight Directory Access Protocol over SSL"}
+                556: {"name": "RFS", "description": "Remote File System service"},
+                1812: {"name": "RADIUS", "description": "Remote Authentication Dial-In User Service"},
+                6514: {"name": "Syslog", "description": "System logging service"},
+                389: {"name": "LDAP", "description": "Lightweight Directory Access Protocol"}
             }
+
         
         self.user_defined = {
-                5000: {"name": "Flask", "description": "Flask web application framework (TCP)"},
-                2354: {"name": "FTP", "description": "File Transfer Protocol server (TCP)"},
-                152: {"name": "DNS", "description": "Domain Name System server (TCP/UDP)"},
+                5000: {"name": "vCenter", "description": "VMware vCenter Server management (TCP)"},
+                2354: {"name": "TFTP", "description": "Trivial File Transfer Protocol (UDP)"},
+                668: {"name": "IRC", "description": "Internet Relay Chat service (TCP)"},
                 6423: {"name": "RDP", "description": "Remote Desktop Protocol server (TCP)"}
             }
+
         
         self.port_info = {**self.default_ports_popular, **self.default_ports_unpopular, **self.user_defined}
 
@@ -131,7 +133,8 @@ class PortScanningChallenge:
             
             # Format with proper spacing
             port_str = f"{port}/tcp"
-            print(f"{port_str:<12} open    {service_name}")
+            # Highlight the port number in bold yellow
+            print(f"\033[1;33m{port_str:<12}\033[0m open    {service_name}")
         
         print(f"\n# Nmap done: 1 IP address (1 host up) scanned")
         print(f"# {len(self.open_ports)} ports found open, {65535 - len(self.open_ports)} ports filtered")
