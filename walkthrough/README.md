@@ -112,11 +112,8 @@ After completing this challenge, you should be able to:
 - [Base64 Encoding Explained](https://en.wikipedia.org/wiki/Base64)
 - [Python Base64 Documentation](https://docs.python.org/3/library/base64.html)
 
-### Python for Cybersecurity
-- [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/)
-- [Black Hat Python: Programming for Hackers and Pentesters](https://nostarch.com/black-hat-python2E)
 
-### CTF Practice
-- [TryHackMe](https://tryhackme.com/)
-- [HackTheBox](https://www.hackthebox.eu/)
-- [PicoCTF](https://picoctf.org/)
+## Troubleshooting
+
+If you're having trouble with the solution:
+- Double-check that you've correctly copied everything correctly from  `fragments.txt`
