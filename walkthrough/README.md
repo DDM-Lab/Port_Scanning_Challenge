@@ -104,11 +104,6 @@ After completing this challenge, you should be able to:
 
 ## Additional Resources
 
-### Port Scanning
-- [Port Scanning Techniques Explained](https://nmap.org/book/man-port-scanning-techniques.html)
-- [OWASP Information Gathering Guide](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)
-
-### Base64 Encoding
 - [Base64 Encoding Explained](https://en.wikipedia.org/wiki/Base64)
 - [Python Base64 Documentation](https://docs.python.org/3/library/base64.html)
 
