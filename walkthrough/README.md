@@ -42,7 +42,7 @@ The challenge simulates common network reconnaissance techniques used in ethical
    ```
    [+] Encoded part X of 4 found: iVBORw0KGgoAAAANSUhEUgAAAhYAA...
    ```
-3. The file `fragments.txt` should have the all the four fragment.
+3. The challenge will output a file: `fragments.txt` with all the four fragments.
 
 ### 4. Decoding the Flag
 
