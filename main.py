@@ -7,7 +7,7 @@ import time
 import os
 
 
-treatment_mode = True
+treatment_mode = False
 debug_mode = False
 
 class PortScanningChallenge:
