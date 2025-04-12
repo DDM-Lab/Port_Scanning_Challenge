@@ -2,6 +2,10 @@
 
 This challenge simulates a real-world port scanning and connection exercise, where you need to identify open ports, connect to them, and retrieve encoded data fragments to reconstruct a hidden flag.
 
+In this walkthrough you have two files:
+1. This file `walkthrough.md`
+2. The solver `solver.py`
+
 ## Overview
 
 In this CTF challenge, you'll act as a penetration tester conducting port scanning on a target system. Your goal is to:
