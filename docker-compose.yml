@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  port-scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: port_scanning_challenge
+    volumes:
+      - .:/app  
+    ports:
+      - "8080:8080"  
+    stdin_open: true  
+    tty: true         # Allocate a pseudo-TTY for terminal interaction
