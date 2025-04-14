@@ -68,7 +68,9 @@ python port_scanning_challenge.py --debug
 # Run treatment with debug information
 python port_scanning_challenge.py --treatment --debug
 ```
-
+* **Using Docker**
+    1. ```docker build -t port-scanning .```
+    2. ```docker run -it --rm port-scanning```
 ## Available Commands
 
 During the challenge, participants can use the following commands:

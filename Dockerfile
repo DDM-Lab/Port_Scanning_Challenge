@@ -6,5 +6,4 @@ COPY main.py /app/main.py
 
 RUN pip install --no-cache-dir argparse
 
-
 CMD ["python3", "main.py"]
