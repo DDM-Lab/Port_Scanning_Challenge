@@ -16,7 +16,7 @@ Each successful connection will reveal part of the encrypted flag.
 ## Details
 Connect to the program with netcat:
 
- nc {{server}} {{port}}
+`$ nc {{server}} {{port}}`
 
 ## Hints
 
