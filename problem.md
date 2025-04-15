@@ -1,7 +1,7 @@
 # File Download
 
 - Namespace: picoctf/research
-- ID: file-download-ecc
+- ID: port-scan
 - Type: custom
 - Category: General Skills
 - Points: 1
@@ -10,13 +10,12 @@
 
 ## Description
 
-Identify and connect to 4 open ports on the target system.
-Each successful connection will reveal part of the encrypted flag.
+Simulate file downloads and analyze insecure ECC cryptography 
 
 ## Details
 Connect to the program with netcat:
 
-`$ nc {{server}} {{port}}`
+$ nc {{server}} {{port}}
 
 ## Hints
 
