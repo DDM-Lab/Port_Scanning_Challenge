@@ -3,12 +3,19 @@ FROM python:3.8-slim AS challenge
 RUN mkdir /challenge && chmod 700 /challenge
 
 WORKDIR /app
-
-COPY main.py /app/main.py
+COPY main.py flag.txt ./
+COPY start.sh /opt/
+RUN chmod +x /opt/start.sh
 
 RUN pip install --no-cache-dir argparse
 
-RUN apt-get update && apt-get install -y --no-install-recommends socat && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libffi-dev \
+    socat \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
 
 # Copy start.sh to /opt/
 COPY start.sh /opt/
