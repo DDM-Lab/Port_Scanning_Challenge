@@ -1,4 +1,4 @@
-# File Download
+# Port Scan
 
 - Namespace: picoctf/research
 - ID: port-scan
@@ -15,7 +15,7 @@ Simulate file downloads and analyze insecure ECC cryptography
 ## Details
 Connect to the program with netcat:
 
-$ nc {{server}} {{port}}
+ nc {{server}} {{port}}
 
 ## Hints
 
