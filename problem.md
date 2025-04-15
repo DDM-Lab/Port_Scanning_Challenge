@@ -6,18 +6,17 @@
 - Category: General Skills
 - Points: 1
 - Templatable: no
-- MaxUsers: 0
+- MaxUsers: 1
 
 ## Description
 
 Identify and connect to 4 open ports on the target system.
-Each successful connection will reveal part of the encrypted flag. 
+Each successful connection will reveal part of the encrypted flag.
 
 ## Details
 Connect to the program with netcat:
 
-$ nc {{server}} {{port}}
-
+ nc {{server}} {{port}}
 
 ## Hints
 
@@ -41,7 +40,7 @@ init: true
 
 ## Learning Objective
 
-Identify different kinds of encoding.
+Understand why reused nounces are vulnerable.
 
 ## Attributes
 
