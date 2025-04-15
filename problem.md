@@ -1,16 +1,31 @@
-# PORT Scanning
+# File Download
 
 - Namespace: picoctf/research
-- ID: port-scanning
+- ID: file-download-ecc
 - Type: custom
-- Category: General
+- Category: General Skills
 - Points: 1
 - Templatable: no
-- Max Users: 1
+- MaxUsers: 0
 
 ## Description
+
 Identify and connect to 4 open ports on the target system.
-Each successful connection will reveal part of the encrypted flag.
+Each successful connection will reveal part of the encrypted flag. 
+
+## Details
+Connect to the program with netcat:
+
+$ nc {{server}} {{port}}
+
+
+## Hints
+
+- You can use the walkthrough
+
+## Solution Overview
+
+Just XOR the two provided chipher text, then XOR with the known plain text to get the flag.
 
 ## Challenge Options
 
@@ -23,8 +38,13 @@ ulimits:
 diskquota: 64m
 init: true
 ```
+
+## Learning Objective
+
+Identify different kinds of encoding.
+
 ## Attributes
 
-- author: DDM Lab
+- author: DDM LAB
 - organization: picoCTF
-- event: S-25 ddmlab reseach study
+- event: DDM LAB Research Study
