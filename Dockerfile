@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends socat && rm -rf
 COPY start.sh /opt/
 RUN chmod +x /opt/start.sh
 
-# Expose the port socat will listen on
+# The start.sh script starts a socat listener on port 5555, that connects to the
+# python script.
 EXPOSE 5555
-
-# Start the service using start.sh
+# PUBLISH 5555 AS socat
 CMD ["/opt/start.sh"]
 

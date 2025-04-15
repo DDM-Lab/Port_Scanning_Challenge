@@ -1,29 +1,31 @@
 # Port Scan
 
-- Namespace: picoctf/research
+- Namespace: picoctf/examples
 - ID: port-scan
 - Type: custom
-- Category: General Skills
+- Category: General
 - Points: 1
-- Templatable: no
-- MaxUsers: 0
+- Templatable: yes
+- MaxUsers: 1
 
 ## Description
 
-Simulate file downloads and analyze insecure ECC cryptography 
+This service can provide you with a random number, but can it do anything else?
 
 ## Details
+
 Connect to the program with netcat:
 
- nc {{server}} {{port}}
+`$ nc {{server}} {{port}}`
+
 
 ## Hints
 
-- You can use the walkthrough
+- Can you point the program to a function that does something useful for you?
 
 ## Solution Overview
 
-Just XOR the two provided chipher text, then XOR with the known plain text to get the flag.
+Enter 'win' as the input to the program
 
 ## Challenge Options
 
@@ -39,10 +41,14 @@ init: true
 
 ## Learning Objective
 
-Understand why reused nounces are vulnerable.
+Examining source code to identify functionality
+
+## Tags
+
+- python
 
 ## Attributes
 
-- author: DDM LAB
+- author: DDM Lab
 - organization: picoCTF
-- event: DDM LAB Research Study
+- event: DDM LAB Research
