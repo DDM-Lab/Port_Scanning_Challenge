@@ -10,7 +10,8 @@
 
 ## Description
 
-This service can provide you with a random number, but can it do anything else?
+Identify and connect to 4 open ports on the target system.
+Each successful connection will reveal part of the encrypted flag.
 
 ## Details
 
@@ -21,11 +22,11 @@ Connect to the program with netcat:
 
 ## Hints
 
-- Can you point the program to a function that does something useful for you?
+- You use the walkthrough
 
 ## Solution Overview
 
-Enter 'win' as the input to the program
+The provided text is PNG, which has been converted to base64 format
 
 ## Challenge Options
 
@@ -41,7 +42,7 @@ init: true
 
 ## Learning Objective
 
-Examining source code to identify functionality
+Identify various kinds of encoding.
 
 ## Tags
 
