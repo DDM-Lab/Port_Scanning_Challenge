@@ -1,6 +1,6 @@
 # Port Scan
 
-- Namespace: picoctf/examples
+- Namespace: picoctf/research
 - ID: port-scan
 - Type: custom
 - Category: General
@@ -22,7 +22,7 @@ Connect to the program with netcat:
 
 ## Hints
 
-- You use the walkthrough
+- You can use the walkthrough provided in the Qualtrics survey
 
 ## Solution Overview
 

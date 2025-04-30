@@ -226,15 +226,16 @@ class PortScanningChallenge:
     def show_complete_flag(self):
         """Show the complete flag once 4 ports are connected"""
         print("\n🎯 Target successfully compromised! 🎯")
-        print("\nCollected all encoded flag components:")
-        
-        # print("\n[+] Flag fragments assembled in sequence:")
-        # ports = []
-        # for i, (port, encoded) in enumerate(list(self.flag_parts.items())[:4]):
-        #     port_info = self.port_info.get(port, {"name": f"custom-{port}"})
-        #     ports.append(port)
-        #     print(f"  Fragment {i+1}: From port {port}/tcp ({port_info['name'].lower()})")
     
+        
+        # Print just all the fragments together:
+        print("\n\033[92mCollected flag fragments:\033[0m")
+        print("\033[93m--------------------------------\033[0m")
+        print("```")
+        for port, fragment in self.flag_parts.items():
+                print(f"{fragment}", end="")
+        print("```")
+        print("\033[93m--------------------------------\033[0m")    
 
         print("\n\033[93mAnalyze the collected flag fragments to reconstruct the final flag!\033[0m")
         print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image revealing the final secret.\033[0m")
@@ -301,26 +302,30 @@ class PortScanningChallenge:
     def write_flag_file(self):
         """Write the flag to a file"""
         fragments_file = "fragments.txt"
-
+        """
         if os.path.exists(fragments_file):
             print(f"File with all fragments '{os.path.abspath(fragments_file)}' already exists.")           
         else:
             with open(fragments_file, "w") as f:
                 f.write(self.encoded_text)
                 print(f"File with all fragments '{os.path.abspath(fragments_file)}' has been created.")
-
+        """
     def exit_challenge(self):
         """Write the Qualtrics output to a file instead of printing it.
            If the file already exists, print a message and do not overwrite it."""
         self.write_flag_file()
-
-        output_file = "ports_challenge.txt"
+        print("\n\033[95m--- *** QUALTRICS INFORMATION START *** ---\033[0m")
+        print("\033[95mPlease copy/paste this information into a .txt file and upload to Qualtrics to receive compensation for this challenge.\033[0m")
         output_text = (
             "Upload this file to Qualtrics to get compensation for this challenge.\n"
             f"Condition: {1 if self.treatment_mode else 0}\n"
             f"Ports connected: {', '.join(map(str, self.connected_ports))}\n"
-            f"Total unique ports connected: {len(self.connected_ports)}\n"
+            f"Total unique ports connected: {len(self.connected_ports)}"
         )
+        print(output_text)
+        print("\033[95m--- *** QUALTRICS INFORMATION END *** ---\033[0m")
+        """
+        output_file = "ports_challenge.txt"
         
         if os.path.exists(output_file):
             print(f"Output file '{os.path.abspath(output_file)}' already exists. Please upload this file to Qualtrics to get compensation for this challenge.")           
@@ -328,7 +333,7 @@ class PortScanningChallenge:
             with open(output_file, "w") as f:
                 f.write(output_text)
                 print(f"Output file '{os.path.abspath(output_file)}' has been created. Please upload this file to Qualtrics to get compensation for this challenge.")
-            
+        """
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Port scanning CTF challenge')
