@@ -65,6 +65,7 @@ The challenge simulates common network reconnaissance techniques used in ethical
 
 ### 5. Submitting Your Result
 
+1. Create a file named `ports_challenge.txt` and copy/paste the Qualtrics information into this file.
 1. Upload `ports_challenge.txt` to Qualtrics to receive credit for completing the challenge.
 2. Submit the flag to Qualtrics.
 

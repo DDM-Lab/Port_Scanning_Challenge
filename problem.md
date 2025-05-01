@@ -1,7 +1,7 @@
 # Port Scan
 
 - Namespace: picoctf/research
-- ID: port-scan
+- ID: port-scan-treatment
 - Type: custom
 - Category: General
 - Points: 1
@@ -11,7 +11,11 @@
 ## Description
 
 Identify and connect to 4 open ports on the target system.
-Each successful connection will reveal part of the encrypted flag.
+Each successful connection will reveal part of the flag.
+The flag seems too long, though. Can you write a Python script that is able to
+decode the flag and saves it with the appropriate extension?
+
+**NOTE: Do not close the Qualtrics survey.**
 
 ## Details
 
@@ -19,10 +23,15 @@ Connect to the program with netcat:
 
 `$ nc {{server}} {{port}}`
 
+**NOTE: Do not forget to save the Qualtrics data along with the flag!**
+
 
 ## Hints
 
-- You can use the walkthrough provided in the Qualtrics survey
+- If you concatenate all fragments, you will be able to identify their encoding format.
+- You may need more than one decoding pass
+- How should you open the final file?
+- Use the walkthrough provided in the Qualtrics survey
 
 ## Solution Overview
 
@@ -52,4 +61,4 @@ Identify various kinds of encoding.
 
 - author: DDM Lab
 - organization: picoCTF
-- event: DDM LAB Research
+- event: picoCTF Experimental Problems 1

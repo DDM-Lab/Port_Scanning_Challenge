@@ -234,18 +234,19 @@ class PortScanningChallenge:
         print("```")
         for port, fragment in self.flag_parts.items():
                 print(f"{fragment}", end="")
-        print("```")
+        print("\n```")
         print("\033[93m--------------------------------\033[0m")    
 
-        print("\n\033[93mAnalyze the collected flag fragments to reconstruct the final flag!\033[0m")
-        print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image revealing the final secret.\033[0m")
+        print("\n\033[93mAnalyze the full string to reconstruct the final flag!\033[0m")
+        #print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image revealing the final secret.\033[0m")
 
 
         print("\n\033[93mExample Approach:\033[0m")
         print("\033[92mYou might try writing a simple Python script that:\033[0m")
-        print("          1) Takes the collected base64-encoded flag fragments.")
-        print("          2) Decodes each fragment using base64 decoding.")
-        print("          3) Assembles the decoded parts in the correct order to reveal the final flag (and maybe it's an image).")
+        print("          1) Takes the collected encoded flag fragments.")
+        print("          2) Decodes each fragment (can you identify the encoding?).")
+        print("          3) Assembles the decoded parts in the correct order.")
+        print("          4) Maybe save the file with a specific extension?")
 
         # print("\n\033[93mTerminal Command Hint:\033[0m")
         # print("\033[92mOn a Linux/macOS terminal, you could try running:\033[0m")
@@ -317,7 +318,6 @@ class PortScanningChallenge:
         print("\n\033[95m--- *** QUALTRICS INFORMATION START *** ---\033[0m")
         print("\033[95mPlease copy/paste this information into a .txt file and upload to Qualtrics to receive compensation for this challenge.\033[0m")
         output_text = (
-            "Upload this file to Qualtrics to get compensation for this challenge.\n"
             f"Condition: {1 if self.treatment_mode else 0}\n"
             f"Ports connected: {', '.join(map(str, self.connected_ports))}\n"
             f"Total unique ports connected: {len(self.connected_ports)}"

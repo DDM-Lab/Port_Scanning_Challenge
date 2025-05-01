@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     socat \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo "{\"flag\":\"$(cat flag.txt)\"}" > /challenge/metadata.json
+
+RUN python setup_challenge.py
 
 # Copy start.sh to /opt/
 COPY start.sh /opt/
