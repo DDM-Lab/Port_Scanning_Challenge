@@ -46,13 +46,12 @@ The challenge simulates common network reconnaissance techniques used in ethical
    ```
    [+] Encoded part X of 4 found: iVBORw0KGgoAAAANSUhEUgAAAhYAA...
    ```
-3. The challenge will output a file: `fragments.txt` with all the four fragments.
 
 ### 4. Decoding the Flag
 
 1. Once you've collected all 4 parts, you'll need to edit the `solver.py` file:
    - Open `solver.py` in your favorite text editor
-   - Replace `FIXME` with the full encoded message (all 4 fragments combined in correct order from the `fragments.txt`)
+   - Replace `FIXME` with the full encoded message (all 4 fragments combined in correct order)
    - Fix the base64 decoding line (hint: what's wrong with the `decoded_once = base64.b64decode(FIXME)` line?)
 
 2. Run the solver script:
@@ -116,4 +115,4 @@ After completing this challenge, you should be able to:
 ## Troubleshooting
 
 If you're having trouble with the solution:
-- Double-check that you've correctly copied everything correctly from  `fragments.txt`
+- Double-check that you've correctly copied everything correctly
