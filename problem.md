@@ -1,7 +1,7 @@
 # Collect the fragments
 
 - Namespace: picoctf/research
-- ID: port-scan-treatment
+- ID: port-scan-control
 - Type: custom
 - Category: General
 - Points: 1
@@ -61,4 +61,4 @@ Identify various kinds of encoding.
 
 - author: DDM Lab
 - organization: picoCTF
-- event: picoCTF Experimental Problems 1
+- event: picoCTF Experimental Problems 2
