@@ -1,4 +1,4 @@
-# Port Scan
+# Collect the fragments
 
 - Namespace: picoctf/research
 - ID: port-scan-treatment

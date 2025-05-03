@@ -3,7 +3,7 @@ FROM python:3.8-slim AS challenge
 RUN mkdir /challenge && chmod 700 /challenge
 
 WORKDIR /app
-COPY main.py flag.txt ./
+COPY main.py setup_challenge.py ./
 COPY start.sh /opt/
 RUN chmod +x /opt/start.sh
 

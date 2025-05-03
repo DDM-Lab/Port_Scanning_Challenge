@@ -229,13 +229,13 @@ class PortScanningChallenge:
     
         
         # Print just all the fragments together:
-        print("\n\033[92mCollected flag fragments:\033[0m")
-        print("\033[93m--------------------------------\033[0m")
-        print("```")
-        for port, fragment in self.flag_parts.items():
-                print(f"{fragment}", end="")
-        print("\n```")
-        print("\033[93m--------------------------------\033[0m")    
+        #print("\n\033[92mCollected flag fragments:\033[0m")
+        #print("\033[93m--------------------------------\033[0m")
+        #print("```")
+        #for port, fragment in self.flag_parts.items():
+        #        print(f"{fragment}", end="")
+        #print("\n```")
+        #print("\033[93m--------------------------------\033[0m")    
 
         print("\n\033[93mAnalyze the full string to reconstruct the final flag!\033[0m")
         #print("\033[92mHint 1: Each fragment is base64 encoded. The final puzzle might involve further decoding, perhaps multiple times. Once fully decoded, you may discover an image revealing the final secret.\033[0m")

@@ -14,4 +14,8 @@ image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "decoded_i
 with open(image_path, "wb") as image_file:
     image_file.write(decoded_once)
 
+<<<<<<< HEAD
 print("Image successfully decoded and saved as 'decoded_image.png'.")
+=======
+print("Image successfully decoded and saved as 'decoded_image.png'.")
+>>>>>>> 8311568 (syncing with deployment)

@@ -115,4 +115,4 @@ After completing this challenge, you should be able to:
 ## Troubleshooting
 
 If you're having trouble with the solution:
-- Double-check that you've correctly copied everything correctly
+- Double-check that you've correctly copied everything correctly.
