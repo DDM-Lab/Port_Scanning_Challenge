@@ -29,7 +29,6 @@ Connect to the program with netcat:
 ## Hints
 
 - If you concatenate all fragments, you will be able to identify their encoding format.
-- You may need more than one decoding pass
 - How should you open the final file?
 - Use the walkthrough provided in the Qualtrics survey
 
