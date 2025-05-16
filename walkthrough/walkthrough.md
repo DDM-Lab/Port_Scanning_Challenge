@@ -1,4 +1,5 @@
-# Port Scanning Challenge
+# CTF Challenge- Collect the Fragments
+
 
 This challenge simulates a real-world port scanning and connection exercise, where you need to identify open ports, connect to them, and retrieve encoded data fragments to reconstruct a hidden flag.
 
